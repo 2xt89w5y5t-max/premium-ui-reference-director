@@ -7,3 +7,4 @@ node_modules/
 external-skills/
 heretic/
 output/scale-video-frames/
+output/codex-skill-plugin-video/*.mp4
