@@ -74,6 +74,7 @@ output/codex-skill-plugin-video/
   storyboard.md
   douyin-post.md
   publish-checklist.md
+  desktop-douyin-publish.md
 ```
 
 ## Codex Workflow Notes
@@ -81,7 +82,7 @@ output/codex-skill-plugin-video/
 - `notes/douyin-tiktok-api-codex-playbook.md` captures a reusable Codex workflow for integrating `Evil0ctal/Douyin_TikTok_Download_API` safely.
 - `notes/chinese-indie-dev-opportunity-map.md` turns `1c7/chinese-independent-developer` into a lightweight opportunity radar for Codex skills, plugins, and tool ideas.
 - `tools/douyin-api-smoke.ps1` provides a local smoke test wrapper for `/api/hybrid/video_data`.
-- `output/codex-skill-plugin-video/` contains the script, storyboard, Douyin post copy, and publishing checklist for a Codex skills/plugins explainer video.
+- `output/codex-skill-plugin-video/` contains the script, storyboard, Douyin post copy, desktop publish flow, and publishing checklist for a Codex skills/plugins explainer video.
 
 ## Notes
 
