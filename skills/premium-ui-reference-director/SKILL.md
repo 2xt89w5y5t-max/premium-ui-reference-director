@@ -1,0 +1,96 @@
+---
+name: premium-ui-reference-director
+description: Use when the user asks to design, build, polish, or review websites, apps, landing pages, ecommerce UI, mobile flows, product software, portfolios, or Chinese requests like 做网站, 做app, 做软件, 做项目, UI设计, 网页, 小程序, 落地页, 高级感, 电影感. Applies Muzli, Awwwards, Pageflows, cinematic luxury commerce, and high-end product design reference logic.
+---
+
+# Premium UI Reference Director
+
+Use this skill as the top-level creative direction layer for the user's websites, apps, and software projects.
+
+## Reference Sources
+
+- Muzli: trend radar, visual culture, color mood, typography freshness, editorial inspiration.
+- Awwwards: premium website composition, interaction craft, motion rhythm, visual scoring, launch-page polish.
+- Pageflows: real app and website user journeys, onboarding, checkout, settings, subscription, search, upgrade, empty states, and conversion flow patterns.
+
+Do not copy designs directly. Extract patterns, mood, interaction logic, and commercial intent.
+
+## Default Creative Direction
+
+The user's preferred world is:
+
+Future luxury commerce plus cinematic digital storytelling.
+
+Blend:
+
+- cyber fashion and AI clothing synthesis
+- cinematic realism
+- Apple-grade restraint
+- high-end beauty and fashion campaign language
+- emotionally immersive storytelling
+- interactive product UI
+
+Every UI should feel expensive, intentional, screenshot-worthy, and commercially useful. Avoid generic templates, weak gradients, cheap cards, random colors, amateur spacing, and fake realism.
+
+## Pre-Design Checklist
+
+Before generating or implementing UI:
+
+1. Define emotional tone.
+2. Pick a visual language.
+3. Establish cinematic atmosphere.
+4. Decide layout rhythm and spacing system.
+5. Define material and lighting behavior.
+6. Map conversion psychology.
+7. Identify the core user flow.
+8. Decide which reference source leads:
+   - Muzli for trend and visual mood.
+   - Awwwards for web presence and motion.
+   - Pageflows for app/product journey.
+
+## Website Rules
+
+- Treat Awwwards as the quality bar for composition, typography, scroll rhythm, visual reveals, and first-screen memorability.
+- Use Muzli to choose trend direction, but filter out anything that feels disposable.
+- The first viewport must make the product, brand, or offer unmistakable.
+- Use cinematic lighting, textured surfaces, and restrained motion when the brand needs emotion.
+- For SaaS/admin/product tools, keep usability first and express luxury through spacing, typography, surface quality, and interaction details.
+
+## App Rules
+
+- Treat Pageflows as the flow benchmark: onboarding, activation, empty state, search, filters, checkout, upgrade, error recovery, and settings should feel complete.
+- Do not only design screens. Design the user's momentum from first touch to desired action.
+- Every major state needs a clear next action.
+- Use bottom navigation, segmented controls, tabs, sheets, toggles, and compact action menus where platform users expect them.
+- Motion should confirm intent, reduce uncertainty, or reveal hierarchy.
+
+## Visual Quality Rules
+
+- Use a tight palette with one dominant mood, one accent, and clear semantic states.
+- Prefer realistic material language: glass only if functional, fabric/metal/leather only when tied to product world.
+- Use soft shadows with controlled highlights, subtle bloom, real texture, and small imperfections.
+- Typography must feel chosen, not default. Match type to brand emotion.
+- Every layout needs a strong focal point, secondary rhythm, and breathing room.
+- Remove anything that does not support hierarchy, emotion, trust, or conversion.
+
+## Implementation Pairing
+
+Pair this skill with:
+
+- `beautiful-ui-designer` for visual polish.
+- `frontend-ui-engineering` for production code.
+- `github-primer-ui-designer` for dense product UI and dashboards.
+- `figma-generate-design` and `figma-use` for Figma screens.
+- `figma-implement-design` for Figma-to-code.
+- `playwright` or Browser for visual verification.
+
+## Final Check
+
+Before final delivery, verify:
+
+- The UI does not feel generic.
+- The first screen has a memorable focal point.
+- The main action is obvious.
+- The flow has no dead ends.
+- Spacing, type, color, and motion belong to the same world.
+- Mobile and desktop do not overlap or crop key text.

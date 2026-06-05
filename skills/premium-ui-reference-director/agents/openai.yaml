@@ -1,0 +1,7 @@
+interface:
+  display_name: "Premium UI Reference Director"
+  short_description: "Guide websites and apps with Muzli, Awwwards, Pageflows, and cinematic luxury direction."
+  brand_color: "#111111"
+  default_prompt: "Use $premium-ui-reference-director to create a cinematic, high-converting website or app direction grounded in Muzli, Awwwards, and Pageflows references."
+policy:
+  allow_implicit_invocation: true
