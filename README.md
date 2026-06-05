@@ -7,6 +7,7 @@ It combines:
 - Muzli for trend awareness and visual culture
 - Awwwards for high-end website craft, composition, motion, and polish
 - Pageflows for real product flows, conversion paths, onboarding, checkout, settings, and state design
+- anbeime/skill for skill-store organization, screenshot-to-design-system workflows, ecommerce video methods, and web-to-app packaging patterns
 - Cinematic luxury commerce direction for future-facing ecommerce, AI fashion, and emotionally designed digital products
 
 The goal is to help Codex avoid generic UI output and produce interfaces that feel intentional, useful, commercially sharp, and visually memorable.
@@ -17,6 +18,7 @@ The goal is to help Codex avoid generic UI output and produce interfaces that fe
 - Routes website work through trend, craft, and conversion references.
 - Routes app work through complete user journeys and product states.
 - Encourages premium typography, restrained palettes, cinematic atmosphere, realistic material language, and strong visual hierarchy.
+- Adds reusable skill workflow ideas learned from `anbeime/skill`, including screenshot design-system extraction and staged ecommerce storytelling.
 - Pairs cleanly with other Codex UI skills such as `beautiful-ui-designer`, `frontend-ui-engineering`, `figma-use`, and `github-primer-ui-designer`.
 
 ## Install

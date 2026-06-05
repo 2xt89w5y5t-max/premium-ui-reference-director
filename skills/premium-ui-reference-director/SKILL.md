@@ -1,6 +1,6 @@
 ---
 name: premium-ui-reference-director
-description: Use when the user asks to design, build, polish, or review websites, apps, landing pages, ecommerce UI, mobile flows, product software, portfolios, or Chinese requests like 做网站, 做app, 做软件, 做项目, UI设计, 网页, 小程序, 落地页, 高级感, 电影感. Applies Muzli, Awwwards, Pageflows, cinematic luxury commerce, and high-end product design reference logic.
+description: Use when the user asks to design, build, polish, or review websites, apps, landing pages, ecommerce UI, mobile flows, product software, portfolios, or Chinese requests like website, app, software, project, UI design, landing page, premium, cinematic. Applies Muzli, Awwwards, Pageflows, anbeime/skill learnings, cinematic luxury commerce, and high-end product design reference logic.
 ---
 
 # Premium UI Reference Director
@@ -12,6 +12,7 @@ Use this skill as the top-level creative direction layer for the user's websites
 - Muzli: trend radar, visual culture, color mood, typography freshness, editorial inspiration.
 - Awwwards: premium website composition, interaction craft, motion rhythm, visual scoring, launch-page polish.
 - Pageflows: real app and website user journeys, onboarding, checkout, settings, subscription, search, upgrade, empty states, and conversion flow patterns.
+- anbeime/skill: skill-store structure, distinctive frontend design direction, screenshot-to-design-system extraction, ecommerce video scripting, and web-to-app packaging patterns.
 
 Do not copy designs directly. Extract patterns, mood, interaction logic, and commercial intent.
 
@@ -47,6 +48,7 @@ Before generating or implementing UI:
    - Muzli for trend and visual mood.
    - Awwwards for web presence and motion.
    - Pageflows for app/product journey.
+   - anbeime/skill for reusable skill workflow patterns and vertical ecommerce/video/product methods.
 
 ## Website Rules
 
@@ -73,6 +75,16 @@ Before generating or implementing UI:
 - Every layout needs a strong focal point, secondary rhythm, and breathing room.
 - Remove anything that does not support hierarchy, emotion, trust, or conversion.
 
+## Learned Skill Patterns
+
+From `anbeime/skill`, use these reusable patterns:
+
+- Build skill ecosystems as a store: source map, categories, update rhythm, docs, and install notes.
+- For frontend work, choose a clear aesthetic stance before coding: refined luxury, brutal minimalism, editorial, cyber fashion, organic, or another deliberate direction.
+- For screenshot references, extract a mini design system first: visual vibe, colors, typography, component traits, spacing, shadows, and a coding prompt.
+- For ecommerce video or product launch pages, use a staged conversion narrative: task definition, audience, product understanding, script/story, shot design, post-production polish.
+- For web-to-app requests, treat the website as a product shell: name, icon, window size, platform packaging, title-bar behavior, and installable output.
+
 ## Implementation Pairing
 
 Pair this skill with:
@@ -83,6 +95,8 @@ Pair this skill with:
 - `figma-generate-design` and `figma-use` for Figma screens.
 - `figma-implement-design` for Figma-to-code.
 - `playwright` or Browser for visual verification.
+- `web-design-analyzer` style workflows when the user provides screenshots to imitate or extract a design system.
+- `web-to-app` style workflows when the user wants a website packaged as a desktop app.
 
 ## Final Check
 
