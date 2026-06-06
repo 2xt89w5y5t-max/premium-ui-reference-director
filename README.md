@@ -6,6 +6,7 @@
 
 - **Codex 技能沉淀：**提供高端 UI 参考、浏览器/桌面自动化编排、每周发布运营等技能。
 - **全量技能索引：**扫描本机 Codex、Agents、OpenAI bundled、OpenAI curated 和 remote curated 技能，生成可检索路由表。
+- **全量插件索引：**扫描本机 OpenAI bundled、curated 和 remote curated 插件包，区分 App、MCP、commands、scripts、UI、templates 与技能入口。
 - **自动化浏览器与桌面协作：**帮助 Codex 在 Browser、Computer Use、`browser-act` 和 Playwright 之间选择合适工具。
 - **GitHub 发布运营闭环：**支持从仓库检查、README/CHANGELOG 更新到 GitHub Release 草稿生成。
 - **短视频内容资产：**为抖音、小红书、视频号、B 站同步生成封面提示词、标题、正文和口播稿。
@@ -42,6 +43,16 @@
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\generate-skill-index.ps1
 ```
 
+## 插件索引
+
+`docs/全部插件索引.md` 是生成文件，记录当前机器上已安装的 Codex 插件包、版本、连接类型、能力边界和内含技能。它用于先选择插件能力包，再落到具体 `SKILL.md`。
+
+重新生成：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\generate-plugin-index.ps1
+```
+
 ## 工具脚本
 
 ### 生成全部技能索引
@@ -54,6 +65,18 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\generate-skill-index
 
 ```text
 docs/全部技能索引.md
+```
+
+### 生成全部插件索引
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\generate-plugin-index.ps1
+```
+
+输出：
+
+```text
+docs/全部插件索引.md
 ```
 
 ### 生成周更发布包
@@ -139,6 +162,7 @@ skills/
 tools/
   douyin-api-smoke.ps1
   generate-skill-index.ps1
+  generate-plugin-index.ps1
   new-weekly-release-pack.ps1
   new-github-release-draft.ps1
   install-automation-updater.ps1
@@ -147,6 +171,7 @@ tools/
 
 docs/
   全部技能索引.md
+  全部插件索引.md
   usage.md
   UI参考源规则.md
   UI技能索引.md
