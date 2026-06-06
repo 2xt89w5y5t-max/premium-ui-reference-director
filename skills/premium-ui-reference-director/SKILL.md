@@ -13,6 +13,11 @@ Use this skill as the top-level creative direction layer for the user's websites
 - Awwwards: premium website composition, interaction craft, motion rhythm, visual scoring, launch-page polish.
 - Pageflows: real app and website user journeys, onboarding, checkout, settings, subscription, search, upgrade, empty states, and conversion flow patterns.
 - anbeime/skill: skill-store structure, distinctive frontend design direction, screenshot-to-design-system extraction, ecommerce video scripting, and web-to-app packaging patterns.
+- Figma 2026 web trends: immersive 3D, motion, bolder typography, vibrant but controlled palettes, AI-assisted flows, and selective experimental navigation.
+- Material 3 Expressive: interaction feedback, shape, color, motion, and component emphasis that make product UIs feel more responsive without reducing clarity.
+- Apple Human Interface Guidelines: platform restraint, clarity, depth, legibility, and material effects that support content instead of decorating it.
+- Baymard ecommerce UX: product-page, mobile, search, filter, checkout, trust, and conversion details grounded in observed shopper behavior.
+- Nielsen Norman Group: AI UX, chatbot/agent usability, explainability, error recovery, and human-centered interaction research.
 
 Do not copy designs directly. Extract patterns, mood, interaction logic, and commercial intent.
 
@@ -33,6 +38,30 @@ Blend:
 
 Every UI should feel expensive, intentional, screenshot-worthy, and commercially useful. Avoid generic templates, weak gradients, cheap cards, random colors, amateur spacing, and fake realism.
 
+## 2026 Live Research Upgrade
+
+Use this layer when the user asks for "premium", "advanced", "top designer", "latest", "AI ecommerce", "AI app", "landing page", "dashboard", or visual redesign.
+
+Current premium design is not just luxury styling. It combines:
+
+- AI-native workflows: visible model state, confidence, fallback paths, editability, and human control.
+- Expressive but usable systems: stronger motion, shape, color, and hierarchy while preserving scanning speed.
+- Product-first storytelling: the first viewport reveals the product, result, or task immediately.
+- High-detail conversion UX: sticky actions, variants, trust signals, fit/size, delivery, returns, cart state, and checkout clarity.
+- Real material discipline: glass, depth, 3D, blur, texture, and lighting only when they support the subject or interaction.
+- Motion with purpose: use animation for causality, state change, reveal, feedback, and orientation, not ambient decoration.
+- Handcrafted specificity: custom typography, image direction, copy tone, and component behavior tied to the brand or domain.
+- Accessibility as luxury: legible type, contrast, focus states, touch targets, reduced-motion tolerance, and no text overflow.
+
+Avoid outdated "AI premium" shortcuts:
+
+- Purple-blue gradient dominance.
+- Empty oversized hero sections.
+- Generic glass cards and floating panels.
+- Decorative 3D objects unrelated to the product.
+- Low-density SaaS dashboards that look like landing pages.
+- Beautiful screens with missing empty, loading, error, disabled, hover, selected, and mobile states.
+
 ## Pre-Design Checklist
 
 Before generating or implementing UI:
@@ -49,6 +78,11 @@ Before generating or implementing UI:
    - Awwwards for web presence and motion.
    - Pageflows for app/product journey.
    - anbeime/skill for reusable skill workflow patterns and vertical ecommerce/video/product methods.
+   - Figma for current web direction and AI-era visual patterns.
+   - Material 3 Expressive for responsive product UI interaction language.
+   - Apple HIG for platform-native restraint and material behavior.
+   - Baymard for ecommerce conversion and mobile detail.
+   - Nielsen Norman Group for AI/agent UX, usability, and error recovery.
 
 ## Website Rules
 
@@ -74,6 +108,10 @@ Before generating or implementing UI:
 - Typography must feel chosen, not default. Match type to brand emotion.
 - Every layout needs a strong focal point, secondary rhythm, and breathing room.
 - Remove anything that does not support hierarchy, emotion, trust, or conversion.
+- If using 3D, immersive media, or bold motion, make it content-bearing: product inspection, workflow orientation, data explanation, or brand scene setting.
+- If using experimental navigation, keep one obvious path to the primary action and never hide essential conversion controls.
+- For dashboards and operations tools, express quality through density, alignment, filters, tables, state clarity, and fast repeated use.
+- For ecommerce, treat images, variants, fit/size, price, shipping, returns, reviews, and checkout momentum as visual design responsibilities.
 
 ## Learned Skill Patterns
 
