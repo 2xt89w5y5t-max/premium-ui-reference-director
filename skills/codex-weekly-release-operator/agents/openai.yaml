@@ -1,0 +1,7 @@
+interface:
+  display_name: "Codex Weekly Release Operator"
+  short_description: "Creates weekly Codex release packs."
+  default_prompt: "Use $codex-weekly-release-operator to inspect a Codex skills repository, update reusable assets, prepare GitHub release notes, and generate creator publishing copy."
+
+policy:
+  allow_implicit_invocation: true
