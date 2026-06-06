@@ -1,0 +1,7 @@
+interface:
+  display_name: "Browser Desktop Orchestrator"
+  short_description: "Routes web and Windows automation to the right tool."
+  default_prompt: "Use $browser-desktop-orchestrator to choose the right browser or desktop automation path and execute it safely."
+
+policy:
+  allow_implicit_invocation: true

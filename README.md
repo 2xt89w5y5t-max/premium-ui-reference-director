@@ -1,4 +1,10 @@
-# Premium UI Reference Director
+# Codex Skill And Plugin Playbook
+
+Reusable Codex skills, plugin workflows, and publishing notes for UI direction, browser automation, desktop automation, and creator-tool integration.
+
+## Skills
+
+### Premium UI Reference Director
 
 A Codex skill for directing premium website, app, and product UI work with a stronger visual reference system.
 
@@ -12,6 +18,17 @@ It combines:
 
 The goal is to help Codex avoid generic UI output and produce interfaces that feel intentional, useful, commercially sharp, and visually memorable.
 
+### Browser Desktop Orchestrator
+
+A thin routing skill that chooses the right automation surface for mixed web and Windows workflows:
+
+- Browser plugin for local web apps, in-app browser tabs, DOM checks, and screenshots
+- Computer Use plugin for Windows apps, native dialogs, file pickers, and desktop clients
+- `browser-act` for rendered-page extraction, sessions, scrolling, and network capture
+- `playwright` for repeatable browser workflows, CLI checks, and scripted screenshots
+
+It is designed for flows like desktop Douyin publishing, local app verification, web research extraction, and "browser reaches upload button, desktop handles file dialog, browser verifies result" handoffs.
+
 ## What This Skill Does
 
 - Establishes a top-level creative direction before UI generation.
@@ -23,10 +40,11 @@ The goal is to help Codex avoid generic UI output and produce interfaces that fe
 
 ## Install
 
-Copy the skill folder into your Codex skills directory:
+Copy one or both skill folders into your Codex skills directory:
 
 ```powershell
 Copy-Item -Recurse -Force .\skills\premium-ui-reference-director "$env:USERPROFILE\.codex\skills\premium-ui-reference-director"
+Copy-Item -Recurse -Force .\skills\browser-desktop-orchestrator "$env:USERPROFILE\.codex\skills\browser-desktop-orchestrator"
 ```
 
 Restart Codex or open a new thread if the skill does not appear immediately.
@@ -49,6 +67,10 @@ Use $premium-ui-reference-director to redesign this SaaS dashboard with stronger
 Use $premium-ui-reference-director with $frontend-ui-engineering to build a polished React landing page.
 ```
 
+```text
+Use $browser-desktop-orchestrator to upload a video through a web page, handle the Windows file picker, then verify the page-side detection result.
+```
+
 ## Repository Structure
 
 ```text
@@ -56,6 +78,10 @@ skills/premium-ui-reference-director/
   SKILL.md
   agents/openai.yaml
   references/reference-map.md
+
+skills/browser-desktop-orchestrator/
+  SKILL.md
+  agents/openai.yaml
 
 docs/
   UI参考源规则.md
