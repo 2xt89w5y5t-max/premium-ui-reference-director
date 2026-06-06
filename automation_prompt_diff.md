@@ -13,6 +13,8 @@
 - 明确最终报告需要包含 commit hash、push 状态、素材目录和提示词更新方式。
 - 增加 `tools/update-codex-desktop-automation.ps1` 的使用方式，让下一次自动化可优先更新 Codex Desktop 的 `automation.toml`。
 - 保留本地 `tools/update-automation-prompt.ps1` 的使用方式，作为提示词镜像文件 fallback。
+- 增加技能与工具路由规则：涉及浏览器、桌面 UI、文件选择器、截图、页面验证或发布流程时，必须先读取 `skills/browser-desktop-orchestrator/SKILL.md`。
+- 明确不能在未读取路由技能和底层技能前，直接声称“没有工具”或“无法点击”。
 
 ## 为什么修改
 
@@ -23,6 +25,7 @@
 - 当前环境没有可用的自动化任务更新工具，因此需要稳定生成可手动复制的下一版提示词。
 - 用户要求安装自动化更新工具后，已补充本地提示词更新脚本和安装器。
 - 用户继续要求 app-level 更新后，已补充直接更新 Codex Desktop `automation.toml` 的工具。
+- 本次对话暴露了技能调用流程问题：仓库已有 `browser-desktop-orchestrator`，但助手没有第一时间按技能路由，导致对工具能力描述不准确。
 - 抖音素材与开源提交边界需要更明确，避免误把个人运营素材提交到 GitHub。
 
 ## 下一次会变得更好的地方

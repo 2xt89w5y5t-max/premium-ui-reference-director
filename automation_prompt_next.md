@@ -38,6 +38,12 @@
 - 新增脚本必须包含用途、参数、错误处理和不会误执行外部发布动作的说明。
 - 新增个人运营素材必须写入 `output/douyin-release/YYYY-MM-DD/`，且不得提交到 GitHub。
 
+## 1.1 技能与工具路由
+
+如果任务涉及浏览器、桌面 UI、文件选择器、截图、页面验证、上传发布、自动化浏览器或 Codex Desktop 状态展示，必须先读取并应用仓库内的 `skills/browser-desktop-orchestrator/SKILL.md`，再按它选择 Browser、Computer Use、browser-act 或 Playwright。
+
+不要在未读取该技能和对应底层技能前，直接判断“没有工具”或“无法点击”。如果底层技能的安全规则限制某个目标，例如 Computer Use 不允许自动化 Codex Desktop 自身 UI，必须明确说明：已调用路由技能，限制来自底层安全规则，而不是技能缺失。
+
 ## 2. GitHub 开源发布任务
 
 完成修改后：
