@@ -1,32 +1,41 @@
-# Douyin/TikTok Download API - Codex 可复用笔记
+# Douyin_TikTok_Download_API：Codex 接入与使用手册
 
-## 来源
+## 本轮上下文
 
-- 仓库：<https://github.com/Evil0ctal/Douyin_TikTok_Download_API>
-- 本地副本：`external-skills/Douyin_TikTok_Download_API`
-- 许可证：Apache-2.0
+- 来源仓库：`external-skills/Douyin_TikTok_Download_API`
+- 本轮可见本地提交：`42784ff`（2025-10-12）
+- 远端同步状态：已检测到 `origin`，但当前自动化会话缺少 Git HTTPS 凭据，`fetch` 被 `SEC_E_NO_CREDENTIALS` 阻塞，因此以下内容基于当前本地副本与代码路由核对结果。
 
-## 这个仓库适合做什么
+## 这个仓库在 Codex 里最适合承担什么角色
 
-它是一个基于 FastAPI、HTTPX、PyWebIO 的抖音、TikTok、Bilibili 数据解析和下载服务。适合接入 Codex 工具链做三类任务：
+它更适合做“本地解析与下载中转层”，而不是通用爬虫平台。
 
-1. 给定抖音/TikTok 分享链接，解析视频基础数据、作者、标题、封面和媒体地址。
-2. 给定用户、作品、评论、直播间等 ID，拉取公开接口数据。
-3. 搭建一个本地 API 中转层，让其他自动化项目只调用统一 HTTP 接口。
+推荐角色：
 
-不要把它当成万能稳定爬虫。抖音端会受 Cookie、风控、接口变动影响；演示站也明确不保证长期可用。
+1. 把抖音/TikTok/Bilibili 的公开视频链接转成结构化 JSON。
+2. 为后续技能提供稳定的统一入口，例如素材卡、竞品拆解、评论痛点提取。
+3. 在需要时补一层受控下载能力，但默认仍以元数据解析优先。
 
-## Codex 使用原则
+不建议的角色：
 
-1. 优先使用本地自部署 API，而不是压测公共 demo。
-2. 不在 prompt、脚本、仓库、日志里写 Cookie。
-3. Cookie 只从本机环境变量或本地未提交配置读取。
-4. 只处理用户提供的链接或公开页面，不绕登录、不批量采集、不碰私密收藏。
-5. 失败时输出「未验证/无法访问/需要 Cookie」，不要编造解析结果。
+- 长时间依赖公共 demo。
+- 无边界批量抓取。
+- 在仓库、日志、文档里保存 Cookie。
 
-## 最小部署路径
+## 代码级核对后的关键事实
 
-### 方式 A：直接 Python 运行
+本轮基于 `app/main.py`、`app/api/router.py` 和各端点文件核对到：
+
+- FastAPI 文档地址来自 `config.yaml`，默认是 `/docs`。
+- 所有 API 都通过 `app.include_router(api_router, prefix="/api")` 挂到 `/api` 前缀下。
+- 默认监听地址来自 `config.yaml`：`Host_IP=0.0.0.0`、`Host_Port=80`。
+- 下载接口是否可用取决于 `API.Download_Switch`，当前本地配置为 `true`。
+- 下载文件默认落到 `API.Download_Path`，当前本地配置为 `./download`。
+- 下载文件名前缀来自 `API.Download_File_Prefix`，当前本地配置为 `douyin.wtf_`。
+
+## 最小启动方式
+
+### 方式 A：本地 Python
 
 ```powershell
 cd C:\Users\Administrator\Documents\技能和插件学习\external-skills\Douyin_TikTok_Download_API
@@ -35,135 +44,196 @@ python -m venv .venv
 .\.venv\Scripts\python start.py
 ```
 
-默认配置在 `config.yaml`：
+默认访问：
 
-- `API.Host_IP`: `0.0.0.0`
-- `API.Host_Port`: `80`
-- API 文档：`/docs`
-- 所有 API 路由前缀：`/api`
+- API 文档：`http://127.0.0.1/docs`
+- API 前缀：`http://127.0.0.1/api`
 
-如果 80 端口被占用，先把 `config.yaml` 里的 `Host_Port` 改成 `8000`。
+如果端口 `80` 被占用：
+
+- 把 `config.yaml` 里的 `API.Host_Port` 改为 `8000`
+- 然后通过 `http://127.0.0.1:8000/docs` 和 `http://127.0.0.1:8000/api` 访问
 
 ### 方式 B：Docker
 
-仓库提供 `docker-compose.yml`，镜像为 `evil0ctal/douyin_tiktok_download_api`。它默认使用 `network_mode: host`，Windows Docker Desktop 上可能需要按实际网络模式调整。
+仓库提供 `docker-compose.yml`。但本仓库的 Codex 接入笔记默认按“本地 Python 启动”写法维护，因为最利于脚本联调和排障。
 
-## 最常用接口
+## 推荐的最小调用面
 
-统一解析单个视频：
+### 1. 统一视频解析
 
 ```text
 GET /api/hybrid/video_data?url=<share-url>&minimal=true
 ```
 
-抖音细分接口：
+用途：
+
+- 输入用户给出的分享链接或分享文本。
+- 快速拿到平台、视频基础元数据和后续可追踪字段。
+
+适用场景：
+
+- 素材归档
+- 链接健康检查
+- 短视频拆解前的最小解析
+
+### 2. 抖音路由
 
 ```text
-GET /api/douyin/web/fetch_one_video?aweme_id=<id>
-GET /api/douyin/web/fetch_user_post_videos?sec_user_id=<id>&count=20
-GET /api/douyin/web/fetch_video_comments?aweme_id=<id>&cursor=0&count=20
-GET /api/douyin/web/get_aweme_id?url=<share-url>
+GET /api/douyin/web/get_aweme_id?url=<share-or-video-url>
 GET /api/douyin/web/get_sec_user_id?url=<user-url>
+GET /api/douyin/web/fetch_one_video?aweme_id=<id>
+GET /api/douyin/web/fetch_user_post_videos?sec_user_id=<id>&max_cursor=0&count=20
+GET /api/douyin/web/fetch_video_comments?aweme_id=<id>&cursor=0&count=20
 ```
 
-TikTok 细分接口：
+代码核对结论：
+
+- `fetch_user_post_videos` 实际参数名是 `max_cursor`，不是 README 中常见的简写示例。
+- `get_aweme_id` 和 `get_sec_user_id` 都在当前本地副本里存在，可以先做 ID 提取，再走细分接口。
+
+### 3. TikTok 路由
 
 ```text
-GET /api/tiktok/web/fetch_one_video?item_id=<id>
-GET /api/tiktok/web/fetch_user_post?sec_user_id=<id>&count=35
+GET /api/tiktok/web/fetch_one_video?itemId=<id>
+GET /api/tiktok/web/fetch_user_profile?uniqueId=<name>
+GET /api/tiktok/web/fetch_user_post?secUid=<id>&cursor=0&count=35&coverFormat=2
 GET /api/tiktok/web/fetch_post_comment?aweme_id=<id>&cursor=0&count=20
 ```
 
-下载接口：
+代码核对结论：
+
+- 当前代码里 TikTok 路由参数采用 `itemId`、`secUid`、`uniqueId` 这组命名。
+- 因此在 Codex 工具链里，不要把抖音的 `sec_user_id` 直接套到 TikTok 路由上。
+
+### 4. 下载路由
 
 ```text
-GET /api/download?url=<share-url>
+GET /api/download?url=<share-url>&prefix=true&with_watermark=false
 ```
 
-更新 Cookie：
+代码核对结论：
+
+- 下载路由不带额外子前缀，最终路径就是 `/api/download`。
+- 是否允许下载由 `config.yaml` 的 `API.Download_Switch` 决定。
+- 下载输出目录和命名前缀都受配置项控制。
+- 更适合本地可信环境调用，不建议对公网暴露。
+
+### 5. Cookie 更新路由
 
 ```text
 POST /api/hybrid/update_cookie
 Body: {"service":"douyin","cookie":"..."}
 ```
 
-注意：更新 Cookie 的接口只适合本地可信网络使用，不要暴露到公网。
+代码核对结论：
 
-## 本地工具链接入方式
+- 当前本地副本里，`douyin` 的更新逻辑已实现。
+- `tiktok` 和 `bilibili` 当前返回的是“会更新但尚未实现”的占位响应。
+- 因此文档里不要把它们写成完整可用能力。
 
-新增脚本：
+## `tools/douyin-api-smoke.ps1` 的正确用法
+
+脚本路径：`tools/douyin-api-smoke.ps1`
+
+默认行为：
+
+- 若未传 `-ApiBase` 且未设置 `DOUYIN_API_BASE`：
+  - 本地模式默认请求 `http://127.0.0.1:80`
+  - `-UsePublicDemo` 模式默认请求 `https://api.douyin.wtf`
+- 请求接口固定为：`/api/hybrid/video_data?url=...&minimal=true`
+
+推荐命令：
 
 ```powershell
 .\tools\douyin-api-smoke.ps1 -Url "https://v.douyin.com/xxxx/"
 ```
 
-可选环境变量：
+如果本地 API 跑在 `8000` 端口：
 
 ```powershell
 $env:DOUYIN_API_BASE = "http://127.0.0.1:8000"
+.\tools\douyin-api-smoke.ps1 -Url "https://v.douyin.com/xxxx/"
 ```
 
-如果只想临时试公共 API：
+如果只想临时试公共 demo：
 
 ```powershell
 .\tools\douyin-api-smoke.ps1 -UsePublicDemo -Url "https://v.douyin.com/xxxx/"
 ```
 
-公共 demo 不保证可用，只能做临时验证。
+返回预期：
 
-## 可封装成 Codex 技能的流程
+- 成功时输出接口 JSON。
+- 失败时输出错误，并附带服务端返回的明细（若有）。
+
+推荐使用边界：
+
+- 用它做连通性检查、最小解析验证。
+- 不要把它当批量采集器。
+- 不要在命令历史里拼接敏感 Cookie。
+
+## 适合封装成 Codex 技能的标准流程
 
 触发词：
 
 - 抖音链接解析
 - TikTok 链接解析
-- 无水印视频元数据
-- 作者作品列表
-- 评论/直播间/商品信息分析
+- 公开短视频素材卡
+- 短视频评论痛点提取
 
 输入：
 
-- 一个或多个用户提供的分享链接
+- 一条或多条用户明确提供的公开视频链接
 - 可选：`DOUYIN_API_BASE`
-- 可选：本机已配置 Cookie
+- 可选：本地环境里已配置的 Cookie
 
 步骤：
 
-1. 先检查链接平台：抖音短链、抖音网页链接、TikTok 链接。
-2. 调用 `/api/hybrid/video_data` 做最小解析。
-3. 如果需要更多信息，再按平台调用细分接口。
-4. 把返回 JSON 归一化为：标题、作者、发布时间、互动数、封面、媒体 URL、原始数据路径。
-5. 对失败项标记原因：接口 400、Cookie 失效、风控、链接不可访问。
+1. 先调用 `/api/hybrid/video_data` 做统一最小解析。
+2. 根据平台和任务决定是否继续提取 `aweme_id`、`sec_user_id`、`itemId`、`secUid`。
+3. 仅在确有需求时再拉评论、作者主页作品或下载媒体。
+4. 把结果归一为统一结构：平台、标题、作者、发布时间、互动、封面、媒体链接、原始 JSON 路径。
+5. 对失败项明确标记原因：无凭据、Cookie 失效、风控、链接不可访问、接口字段变化。
 
 输出：
 
-- 简短摘要
-- 原始 JSON 保存路径
-- 可继续分析的字段
+- 一份短摘要
+- 原始响应保存路径
+- 下一步可用字段
 - 风险说明
 
-## 落地项目建议
+## 对当前仓库最有价值的衍生用法
 
-### 1. 内容素材归档器
+### 1. 公开视频素材卡生成器
 
-把抖音/TikTok 链接解析成结构化素材卡：标题、作者、标签、封面、视频地址、发布时间、互动数据。适合接到 `market-demand-radar` 或 AI 电商素材库。
+输入链接，输出：
 
-### 2. 竞品短视频拆解器
+- 标题
+- 作者
+- 发布时间
+- 评论关键词
+- 可复刻镜头/卖点备注
 
-输入 10 个竞品视频链接，输出脚本结构、卖点、镜头节奏、评论痛点。需要注意只分析公开内容，不做批量抓取。
+### 2. 竞品视频拆解前置层
 
-### 3. 电商视频素材预处理器
+先用该 API 做字段归一，再交给其他技能做脚本拆解、评论聚类、卖点提取。
 
-对用户授权的商品视频做下载、抽帧、转写、卖点提取，再交给 Agnes/视频生成流程做二创提示词。
+### 3. 发布包素材准备器
 
-### 4. 趋势种子收集器
+只保留元数据与封面信息，不默认下载大文件，减少版权和存储风险。
 
-只保存轻量元数据，不保存大文件；按关键词/作者手工提供链接，避免无边界爬取。
+## 风险边界
 
-## 风险点
+- 抖音端解析能力受 Cookie 和风控影响较大。
+- 公共 demo 站不适合作为长期自动化依赖。
+- 接口命名和字段可能随 upstream 变动；写集成前应优先对照当前本地代码或 `/docs`。
+- `update_cookie` 目前只有 `douyin` 分支真正实现，不应对 `tiktok`/`bilibili` 做可用性承诺。
+- 不要把 Cookie 写进 `config.yaml` 后提交到 Git。
+- 下载或转载内容前必须确认授权与平台规则。
 
-- 抖音 Cookie 失效会导致解析失败。
-- 公共 demo 关闭下载功能，不适合作为生产依赖。
-- 接口参数会随平台调整变化，先读 `/docs` 再写集成。
-- 不要把 Cookie 写入 `config.yaml` 后提交。
-- 下载/转载内容需要确认授权和平台规则。
+## 本轮结论
+
+- 这个项目最适合被 Codex 当作“受控 API 中转层”。
+- 最稳的入口仍然是 `/api/hybrid/video_data`。
+- 文档和脚本说明必须以代码路由为准，尤其要区分抖音与 TikTok 的参数命名。

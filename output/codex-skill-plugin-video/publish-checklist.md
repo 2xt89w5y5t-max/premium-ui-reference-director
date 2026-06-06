@@ -1,51 +1,51 @@
 # 发布检查清单
 
-## GitHub 上传
+## GitHub 开源仓库
 
-当前状态：本仓库已经配置 GitHub remote。
+当前状态：
 
-检查命令：
+- 根仓库已配置 `origin`
+- 两个 `external-skills` 子仓库也都配置了 `origin`
+- 但当前自动化会话缺少 Git HTTPS 凭据
 
-```powershell
-cd C:\Users\Administrator\Documents\技能和插件学习
-git remote -v
-```
+本轮验证结论：
 
-当前 remote：
+- `git -c safe.directory=<repo> fetch --all --tags --prune` 失败
+- `git push --dry-run` 失败
+- 错误核心：`SEC_E_NO_CREDENTIALS`
 
-```text
-https://github.com/2xt89w5y5t-max/premium-ui-reference-director.git
-```
+因此本轮策略：
 
-之后每周自动化可以在 Git 凭据可用时自动 commit 和 push。
+- 完成本地文档、脚本说明、发布包整理
+- 不宣称已同步 upstream
+- 不执行 commit/push
 
-## 抖音发布
+## 抖音上传
 
-当前策略：通过你的电脑端已登录会话准备发布，最终发布默认等待你确认。
+当前状态：
 
-允许执行的方式：
+- 目录内已有可用 MP4 文件
+- 文案包已准备好
+- 默认只允许准备上传，不允许自动点击最终发布
 
-1. 手动上传 HeyGen 生成的视频。
-2. 使用你提供的官方发布 API 或已授权发布工具。
-3. 使用你已登录的浏览器或抖音 PC 客户端上传视频、填写文案、停在最终发布确认前。
-4. 如果你明确要求并现场确认账号与内容，可以继续点击最终发布。
+允许执行：
 
-不执行：
+1. 使用已登录的网页端或 PC 客户端打开上传页
+2. 选择本地 MP4
+3. 填写 `douyin-post.md` 中的标题、简介、标签和封面文案
+4. 停在最终发布确认前等待人工处理
 
-- 不保存抖音账号密码。
-- 不绕验证码。
-- 不模拟规避风控。
-- 不自动发布未确认的视频内容。
-- 不导出或写入 Cookie、Token。
+必须暂停并等待用户：
 
-## 视频生成
+1. 登录或扫码
+2. 验证码、二次验证、风控提示
+3. 授权弹窗
+4. 可见范围与发布时间确认
+5. 最终发布按钮前
 
-HeyGen 会话：
+明确不做：
 
-```text
-https://app.heygen.com/video-agent/729fbfcb48854bc8a97d890cca71860b
-```
-
-视频生成完成后，把成品下载或复制链接，再按 `douyin-post.md` 上传发布。
-
-电脑端流程见：`desktop-douyin-publish.md`。
+- 不保存账号密码
+- 不导出或写入 Cookie、Token
+- 不绕过平台限制
+- 不在未获现场确认的情况下点击最终发布

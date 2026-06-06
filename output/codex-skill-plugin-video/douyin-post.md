@@ -2,24 +2,29 @@
 
 ## 标题
 
-Codex 技能和插件到底怎么用？用 2 个 GitHub 仓库讲清楚
+我把 2 个 GitHub 仓库整理成了 Codex 自动化工作流
 
 ## 简介
 
-我把 `Douyin_TikTok_Download_API` 和 `chinese-independent-developer` 整理成了 Codex 可复用工作流：一个负责短视频链接解析，一个负责独立开发者机会雷达。
+这次整理了两个很适合做 Codex 技能/插件学习样本的仓库：
 
-重点不是收藏仓库，而是把仓库变成可重复执行的流程。
+- `Douyin_TikTok_Download_API`：负责公开视频链接解析、本地 API 中转和最小 smoke 检查
+- `chinese-independent-developer`：负责观察最近新增项目，再反推哪些模式值得做成技能、插件和轻工具
+
+重点不是“收藏仓库”，而是把仓库变成能重复执行的流程：
+
+`仓库 -> 笔记 -> 脚本 -> 发布包 -> 自动化复用`
 
 ## 标签
 
-#Codex #AI工具 #开源项目 #独立开发者 #GitHub #自动化工作流 #效率工具
+#Codex #GitHub #开源项目 #AI工具 #自动化工作流 #独立开发者 #效率工具
 
 ## 封面文案
 
-Codex 技能 + 插件
+2 个仓库
 
-把 GitHub 仓库变成自动化工作流
+变成 1 套 Codex 工作流
 
 ## 置顶评论
 
-安全提醒：自动化流程里不要把 Cookie、Token、账号密码写进代码、日志或提交记录。
+安全边界别省：不要把 Cookie、Token、账号密码写进代码、日志、截图或提交记录。
