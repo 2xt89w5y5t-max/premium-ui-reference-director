@@ -96,7 +96,13 @@ output/douyin-release/YYYY-MM-DD/
 
 如果当前环境有自动化更新工具，调用工具把下一次自动化提示词更新为 `automation_prompt_next.md` 的内容。
 
-如果仓库中存在 `tools/update-automation-prompt.ps1`，可用它先更新本地提示词文件：
+如果仓库中存在 `tools/update-codex-desktop-automation.ps1`，优先用它更新 Codex Desktop 自动化配置文件：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\update-codex-desktop-automation.ps1 -AutomationId codex -SourcePath .\automation_prompt_next.md -SyncPromptFile
+```
+
+如果只存在 `tools/update-automation-prompt.ps1`，可用它更新本地提示词镜像文件：
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\update-automation-prompt.ps1 -AutomationId codex -SourcePath .\automation_prompt_next.md

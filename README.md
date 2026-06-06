@@ -61,13 +61,13 @@ output/github-release-draft-YYYY-MM-DD.md
 
 它会读取本地 Git log 和 `CHANGELOG.md` 的对应日期条目，生成可复制到 GitHub Release 的草稿与发布前检查清单。
 
-### 安装自动化提示词更新工具
+### 安装 Codex Desktop 自动化配置更新工具
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\install-automation-updater.ps1 -AutomationId codex -ApplyPrompt -Force
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\install-automation-updater.ps1 -AutomationId codex -ApplyPrompt -ApplyDesktopConfig -Force
 ```
 
-这个工具会把 `tools/update-automation-prompt.ps1` 安装到本机 Codex 自动化目录，并把 `automation_prompt_next.md` 安装为本地 `prompt.md`，同时备份旧提示词。它只修改本地文件，不会调用 Codex Desktop 自动化任务接口。
+这个工具会把本仓库的更新器安装到本机 Codex 自动化目录，并把 `automation_prompt_next.md` 写入 `prompt.md` 和 Codex Desktop 使用的 `automation.toml`。写入前会备份旧配置到 `backups/`，不会调用外部 API。
 
 ### 抖音 API smoke test
 
@@ -119,6 +119,7 @@ tools/
   new-github-release-draft.ps1
   install-automation-updater.ps1
   update-automation-prompt.ps1
+  update-codex-desktop-automation.ps1
 
 docs/
   usage.md

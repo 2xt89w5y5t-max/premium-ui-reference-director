@@ -11,7 +11,8 @@
 - 明确新增脚本必须包含用途、参数、错误处理和本地安全边界。
 - 明确 detached HEAD 下可以本地提交，但要报告 push 限制。
 - 明确最终报告需要包含 commit hash、push 状态、素材目录和提示词更新方式。
-- 增加本地 `tools/update-automation-prompt.ps1` 的使用方式，让下一次自动化可先更新本地提示词文件。
+- 增加 `tools/update-codex-desktop-automation.ps1` 的使用方式，让下一次自动化可优先更新 Codex Desktop 的 `automation.toml`。
+- 保留本地 `tools/update-automation-prompt.ps1` 的使用方式，作为提示词镜像文件 fallback。
 
 ## 为什么修改
 
@@ -21,6 +22,7 @@
 - `README.md` 和 `CHANGELOG.md` 存在中文乱码，说明提示词需要强调发布入口文档质量。
 - 当前环境没有可用的自动化任务更新工具，因此需要稳定生成可手动复制的下一版提示词。
 - 用户要求安装自动化更新工具后，已补充本地提示词更新脚本和安装器。
+- 用户继续要求 app-level 更新后，已补充直接更新 Codex Desktop `automation.toml` 的工具。
 - 抖音素材与开源提交边界需要更明确，避免误把个人运营素材提交到 GitHub。
 
 ## 下一次会变得更好的地方

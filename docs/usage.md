@@ -56,7 +56,7 @@ Copy-Item -Recurse -Force .\skills\codex-weekly-release-operator "$env:USERPROFI
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\new-github-release-draft.ps1 -Title "Codex 技能插件周更"
 ```
 
-## 安装自动化提示词更新工具
+## 安装 Codex Desktop 自动化配置更新工具
 
 安装工具到本机 Codex 自动化目录：
 
@@ -64,25 +64,33 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\new-github-release-d
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\install-automation-updater.ps1 -AutomationId codex -Force
 ```
 
-一步安装工具并把 `automation_prompt_next.md` 写入本地 `prompt.md`：
+一步安装工具，并把 `automation_prompt_next.md` 写入本地 `prompt.md` 与 Codex Desktop 的 `automation.toml`：
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\install-automation-updater.ps1 -AutomationId codex -ApplyPrompt -Force
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\install-automation-updater.ps1 -AutomationId codex -ApplyPrompt -ApplyDesktopConfig -Force
 ```
 
 安装后的位置：
 
 ```text
 $CODEX_HOME/automations/codex/tools/update-automation-prompt.ps1
+$CODEX_HOME/automations/codex/tools/update-codex-desktop-automation.ps1
 ```
 
 提示词目标文件：
 
 ```text
 $CODEX_HOME/automations/codex/prompt.md
+$CODEX_HOME/automations/codex/automation.toml
 ```
 
-旧提示词会自动备份到 `backups/prompt-YYYYMMDD-HHMMSS.md`。这个工具只维护本地提示词文件；如果 Codex Desktop 没有暴露自动化任务更新接口，仍需手动把提示词复制到桌面自动化任务配置里。
+旧提示词和旧配置会自动备份到 `backups/prompt-YYYYMMDD-HHMMSS.md` 与 `backups/automation-YYYYMMDD-HHMMSS.toml`。`update-codex-desktop-automation.ps1` 会更新 `automation.toml` 里的 `prompt = "..."` 和 `updated_at` 字段。
+
+只预览不写入：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\update-codex-desktop-automation.ps1 -AutomationId codex -SourcePath .\automation_prompt_next.md -DryRun
+```
 
 ## 运行抖音 API smoke test
 
