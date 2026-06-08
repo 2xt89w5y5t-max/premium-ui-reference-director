@@ -4,13 +4,13 @@ Use these local skills and plugin indexes when the request matches their trigger
 
 ## Skill routing
 
-- Use `docs/全部技能索引.md` as the local skill map when a task mentions skills, reusable workflows, browser automation, desktop automation, UI work, GitHub publishing, API integration, data analysis, ecommerce, AI generation, or code review.
+- Use `docs/鍏ㄩ儴鎶€鑳界储寮?md` as the local skill map when a task mentions skills, reusable workflows, browser automation, desktop automation, UI work, GitHub publishing, API integration, data analysis, ecommerce, AI generation, or code review.
 - Route from the task signal to the smallest useful skill set, then read only the selected `SKILL.md` and the directly needed references/scripts.
 - Do not load every installed skill into context at once.
 
 ## Plugin routing
 
-- Use `docs/全部插件索引.md` as the local plugin map when a task mentions plugins, Browser, Computer Use, Figma, GitHub, deployment, data analytics, creative production, office connectors, or OpenAI developer tooling.
+- Use `docs/鍏ㄩ儴鎻掍欢绱㈠紩.md` as the local plugin map when a task mentions plugins, Browser, Computer Use, Figma, GitHub, deployment, data analytics, creative production, office connectors, or OpenAI developer tooling.
 - Route at the plugin layer first, then read only the specific `SKILL.md` or plugin instruction needed for the task.
 - Prefer Browser for in-app browser, localhost, file URL, DOM inspection, page clicks, and page screenshots.
 - Prefer Computer Use for Windows desktop apps, file pickers, Douyin desktop publishing, native dialogs, and non-browser software.
