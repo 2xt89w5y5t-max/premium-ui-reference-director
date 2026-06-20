@@ -1,131 +1,131 @@
 # Codex Skill And Plugin Playbook
 
-一个面向 Codex 的技能、插件路由、自动化脚本和内容发布素材库。它把 AI Agent 工作流沉淀成可安装的 `skills/`、可执行的 `tools/`、可复用的 `examples/`，并配套 GitHub 与抖音/小红书内容发布材料。
+涓€涓潰鍚?Codex 鐨勬妧鑳姐€佹彃浠惰矾鐢便€佽嚜鍔ㄥ寲鑴氭湰鍜屽唴瀹瑰彂甯冪礌鏉愬簱銆傚畠鎶?AI Agent 宸ヤ綔娴佹矇娣€鎴愬彲瀹夎鐨?`skills/`銆佸彲鎵ц鐨?`tools/`銆佸彲澶嶇敤鐨?`examples/`锛屽苟閰嶅 GitHub 涓庢姈闊?灏忕孩涔﹀唴瀹瑰彂甯冩潗鏂欍€?
 
-## 项目亮点
+## 椤圭洰浜偣
 
-- **Codex 技能沉淀：**提供高端 UI 参考、浏览器/桌面自动化编排、每周发布运营等技能。
-- **全量技能索引：**扫描本机 Codex、Agents、OpenAI bundled、OpenAI curated 和 remote curated 技能，生成可检索路由表。
-- **全量插件索引：**扫描本机 OpenAI bundled、curated 和 remote curated 插件包，区分 App、MCP、commands、scripts、UI、templates 与技能入口。
-- **自动化浏览器与桌面协作：**帮助 Codex 在 Browser、Computer Use、`browser-act` 和 Playwright 之间选择合适工具。
-- **GitHub 发布运营闭环：**支持从仓库检查、README/CHANGELOG 更新到 GitHub Release 草稿生成。
-- **短视频内容资产：**为抖音、小红书、视频号、B 站同步生成封面提示词、标题、正文和口播稿。
-- **电商与视频工具链探索：**包含 Douyin/TikTok API smoke test 和视频发布包示例。
+- **Codex 鎶€鑳芥矇娣€锛?*鎻愪緵楂樼 UI 鍙傝€冦€佹祻瑙堝櫒/妗岄潰鑷姩鍖栫紪鎺掋€佹瘡鍛ㄥ彂甯冭繍钀ョ瓑鎶€鑳姐€?
+- **鍏ㄩ噺鎶€鑳界储寮曪細**鎵弿鏈満 Codex銆丄gents銆丱penAI bundled銆丱penAI curated 鍜?remote curated 鎶€鑳斤紝鐢熸垚鍙绱㈣矾鐢辫〃銆?
+- **鍏ㄩ噺鎻掍欢绱㈠紩锛?*鎵弿鏈満 OpenAI bundled銆乧urated 鍜?remote curated 鎻掍欢鍖咃紝鍖哄垎 App銆丮CP銆乧ommands銆乻cripts銆乁I銆乼emplates 涓庢妧鑳藉叆鍙ｃ€?
+- **鑷姩鍖栨祻瑙堝櫒涓庢闈㈠崗浣滐細**甯姪 Codex 鍦?Browser銆丆omputer Use銆乣browser-act` 鍜?Playwright 涔嬮棿閫夋嫨鍚堥€傚伐鍏枫€?
+- **GitHub 鍙戝竷杩愯惀闂幆锛?*鏀寔浠庝粨搴撴鏌ャ€丷EADME/CHANGELOG 鏇存柊鍒?GitHub Release 鑽夌鐢熸垚銆?
+- **鐭棰戝唴瀹硅祫浜э細**涓烘姈闊炽€佸皬绾功銆佽棰戝彿銆丅 绔欏悓姝ョ敓鎴愬皝闈㈡彁绀鸿瘝銆佹爣棰樸€佹鏂囧拰鍙ｆ挱绋裤€?
+- **鐢靛晢涓庤棰戝伐鍏烽摼鎺㈢储锛?*鍖呭惈 Douyin/TikTok API smoke test 鍜岃棰戝彂甯冨寘绀轰緥銆?
 
-## 适合人群
+## 閫傚悎浜虹兢
 
-- 想维护个人 Codex 技能库的 AI Agent 用户。
-- 做自动化浏览器、桌面发布、GitHub 自动化的开发者。
-- 做 AI 电商、短视频、电商脚本、ComfyUI 或 API 工具链的独立开发者。
-- 想把开源项目变成可持续内容资产的创作者。
+- 鎯崇淮鎶や釜浜?Codex 鎶€鑳藉簱鐨?AI Agent 鐢ㄦ埛銆?
+- 鍋氳嚜鍔ㄥ寲娴忚鍣ㄣ€佹闈㈠彂甯冦€丟itHub 鑷姩鍖栫殑寮€鍙戣€呫€?
+- 鍋?AI 鐢靛晢銆佺煭瑙嗛銆佺數鍟嗚剼鏈€丆omfyUI 鎴?API 宸ュ叿閾剧殑鐙珛寮€鍙戣€呫€?
+- 鎯虫妸寮€婧愰」鐩彉鎴愬彲鎸佺画鍐呭璧勪骇鐨勫垱浣滆€呫€?
 
-## 技能清单
+## 鎶€鑳芥竻鍗?
 
 ### `premium-ui-reference-director`
 
-面向网站、App、落地页、电商页面和产品 UI 的高端视觉参考导演技能。它结合 Muzli、Awwwards、Pageflows 和 cinematic luxury commerce 方向，帮助 Codex 先建立审美方向，再进入实现。
+闈㈠悜缃戠珯銆丄pp銆佽惤鍦伴〉銆佺數鍟嗛〉闈㈠拰浜у搧 UI 鐨勯珮绔瑙夊弬鑰冨婕旀妧鑳姐€傚畠缁撳悎 Muzli銆丄wwwards銆丳ageflows 鍜?cinematic luxury commerce 鏂瑰悜锛屽府鍔?Codex 鍏堝缓绔嬪缇庢柟鍚戯紝鍐嶈繘鍏ュ疄鐜般€?
 
 ### `browser-desktop-orchestrator`
 
-轻量路由技能，用于在 Browser、Computer Use、`browser-act` 和 Playwright 之间选择正确自动化表面。适合本地 Web 验证、桌面文件选择器、抖音发布、渲染页面提取和脚本化截图。
+杞婚噺璺敱鎶€鑳斤紝鐢ㄤ簬鍦?Browser銆丆omputer Use銆乣browser-act` 鍜?Playwright 涔嬮棿閫夋嫨姝ｇ‘鑷姩鍖栬〃闈€傞€傚悎鏈湴 Web 楠岃瘉銆佹闈㈡枃浠堕€夋嫨鍣ㄣ€佹姈闊冲彂甯冦€佹覆鏌撻〉闈㈡彁鍙栧拰鑴氭湰鍖栨埅鍥俱€?
 
 ### `codex-weekly-release-operator`
 
-用于每周维护 Codex 技能插件仓库：检查最近变更，新增可复用技能/脚本/示例，更新 README 和 CHANGELOG，生成 GitHub 发布摘要与抖音发布文案，并安全处理 Git 提交/推送。
+鐢ㄤ簬姣忓懆缁存姢 Codex 鎶€鑳芥彃浠朵粨搴擄細妫€鏌ユ渶杩戝彉鏇达紝鏂板鍙鐢ㄦ妧鑳?鑴氭湰/绀轰緥锛屾洿鏂?README 鍜?CHANGELOG锛岀敓鎴?GitHub 鍙戝竷鎽樿涓庢姈闊冲彂甯冩枃妗堬紝骞跺畨鍏ㄥ鐞?Git 鎻愪氦/鎺ㄩ€併€?
 
-## 技能索引
+## 鎶€鑳界储寮?
 
-`docs/全部技能索引.md` 是生成文件，记录当前机器上 487 个已安装技能入口，并提供“按任务信号自动路由到技能”的优先级表。
+`docs/鍏ㄩ儴鎶€鑳界储寮?md` 鏄敓鎴愭枃浠讹紝璁板綍褰撳墠鏈哄櫒涓?487 涓凡瀹夎鎶€鑳藉叆鍙ｏ紝骞舵彁渚涒€滄寜浠诲姟淇″彿鑷姩璺敱鍒版妧鑳解€濈殑浼樺厛绾ц〃銆?
 
-重新生成：
-
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\generate-skill-index.ps1
-```
-
-## 插件索引
-
-`docs/全部插件索引.md` 是生成文件，记录当前机器上已安装的 Codex 插件包、版本、连接类型、能力边界和内含技能。它用于先选择插件能力包，再落到具体 `SKILL.md`。
-
-重新生成：
-
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\generate-plugin-index.ps1
-```
-
-## 工具脚本
-
-### 生成全部技能索引
+閲嶆柊鐢熸垚锛?
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\generate-skill-index.ps1
 ```
 
-输出：
+## 鎻掍欢绱㈠紩
 
-```text
-docs/全部技能索引.md
-```
+`docs/鍏ㄩ儴鎻掍欢绱㈠紩.md` 鏄敓鎴愭枃浠讹紝璁板綍褰撳墠鏈哄櫒涓婂凡瀹夎鐨?Codex 鎻掍欢鍖呫€佺増鏈€佽繛鎺ョ被鍨嬨€佽兘鍔涜竟鐣屽拰鍐呭惈鎶€鑳姐€傚畠鐢ㄤ簬鍏堥€夋嫨鎻掍欢鑳藉姏鍖咃紝鍐嶈惤鍒板叿浣?`SKILL.md`銆?
 
-### 生成全部插件索引
+閲嶆柊鐢熸垚锛?
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\generate-plugin-index.ps1
 ```
 
-输出：
+## 宸ュ叿鑴氭湰
 
-```text
-docs/全部插件索引.md
-```
-
-### 生成周更发布包
+### 鐢熸垚鍏ㄩ儴鎶€鑳界储寮?
 
 ```powershell
-.\tools\new-weekly-release-pack.ps1 -Title "Codex 技能插件周更：发布运营包"
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\generate-skill-index.ps1
 ```
 
-输出：
+杈撳嚭锛?
+
+```text
+docs/鍏ㄩ儴鎶€鑳界储寮?md
+```
+
+### 鐢熸垚鍏ㄩ儴鎻掍欢绱㈠紩
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\generate-plugin-index.ps1
+```
+
+杈撳嚭锛?
+
+```text
+docs/鍏ㄩ儴鎻掍欢绱㈠紩.md
+```
+
+### 鐢熸垚鍛ㄦ洿鍙戝竷鍖?
+
+```powershell
+.\tools\new-weekly-release-pack.ps1 -Title "Codex 鎶€鑳芥彃浠跺懆鏇达細鍙戝竷杩愯惀鍖?
+```
+
+杈撳嚭锛?
 
 ```text
 output/weekly-release-YYYY-MM-DD.md
 ```
 
-脚本只生成本地 Markdown 文件，不会自动提交、推送、上传或调用外部 API。
+鑴氭湰鍙敓鎴愭湰鍦?Markdown 鏂囦欢锛屼笉浼氳嚜鍔ㄦ彁浜ゃ€佹帹閫併€佷笂浼犳垨璋冪敤澶栭儴 API銆?
 
-### 生成 GitHub Release 草稿
+### 鐢熸垚 GitHub Release 鑽夌
 
 ```powershell
-.\tools\new-github-release-draft.ps1 -Date 2026-06-06 -Title "Codex 技能插件周更" -Tag "v2026.06.06"
+.\tools\new-github-release-draft.ps1 -Date 2026-06-06 -Title "Codex 鎶€鑳芥彃浠跺懆鏇? -Tag "v2026.06.06"
 ```
 
-输出：
+杈撳嚭锛?
 
 ```text
 output/github-release-draft-YYYY-MM-DD.md
 ```
 
-它会读取本地 Git log 和 `CHANGELOG.md` 的对应日期条目，生成可复制到 GitHub Release 的草稿与发布前检查清单。
+瀹冧細璇诲彇鏈湴 Git log 鍜?`CHANGELOG.md` 鐨勫搴旀棩鏈熸潯鐩紝鐢熸垚鍙鍒跺埌 GitHub Release 鐨勮崏绋夸笌鍙戝竷鍓嶆鏌ユ竻鍗曘€?
 
-### 安装 Codex Desktop 自动化配置更新工具
+### 瀹夎 Codex Desktop 鑷姩鍖栭厤缃洿鏂板伐鍏?
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\install-automation-updater.ps1 -AutomationId codex -ApplyPrompt -ApplyDesktopConfig -Force
 ```
 
-这个工具会把本仓库的更新器安装到本机 Codex 自动化目录，并把 `automation_prompt_next.md` 写入 `prompt.md` 和 Codex Desktop 使用的 `automation.toml`。写入前会备份旧配置到 `backups/`，不会调用外部 API。
+杩欎釜宸ュ叿浼氭妸鏈粨搴撶殑鏇存柊鍣ㄥ畨瑁呭埌鏈満 Codex 鑷姩鍖栫洰褰曪紝骞舵妸 `automation_prompt_next.md` 鍐欏叆 `prompt.md` 鍜?Codex Desktop 浣跨敤鐨?`automation.toml`銆傚啓鍏ュ墠浼氬浠芥棫閰嶇疆鍒?`backups/`锛屼笉浼氳皟鐢ㄥ閮?API銆?
 
-### 抖音 API smoke test
+### 鎶栭煶 API smoke test
 
 ```powershell
 .\tools\douyin-api-smoke.ps1 -ApiBase "http://127.0.0.1:8000" -Url "https://v.douyin.com/xxxx/"
 ```
 
-用于快速验证 Douyin/TikTok 下载 API 的 `/api/hybrid/video_data` 端点是否可用。
+鐢ㄤ簬蹇€熼獙璇?Douyin/TikTok 涓嬭浇 API 鐨?`/api/hybrid/video_data` 绔偣鏄惁鍙敤銆?
 
-## 安装
+## 瀹夎
 
-复制需要的技能到 Codex 技能目录：
+澶嶅埗闇€瑕佺殑鎶€鑳藉埌 Codex 鎶€鑳界洰褰曪細
 
 ```powershell
 Copy-Item -Recurse -Force .\skills\premium-ui-reference-director "$env:USERPROFILE\.codex\skills\premium-ui-reference-director"
@@ -133,9 +133,9 @@ Copy-Item -Recurse -Force .\skills\browser-desktop-orchestrator "$env:USERPROFIL
 Copy-Item -Recurse -Force .\skills\codex-weekly-release-operator "$env:USERPROFILE\.codex\skills\codex-weekly-release-operator"
 ```
 
-如果技能没有立即出现，重启 Codex 或开启新会话。
+濡傛灉鎶€鑳芥病鏈夌珛鍗冲嚭鐜帮紝閲嶅惎 Codex 鎴栧紑鍚柊浼氳瘽銆?
 
-## 使用示例
+## 浣跨敤绀轰緥
 
 ```text
 Use $premium-ui-reference-director to design a luxury AI fashion commerce app.
@@ -149,9 +149,9 @@ Use $browser-desktop-orchestrator to upload a video through a web page, handle t
 Use $codex-weekly-release-operator to inspect this repository, add one reusable asset, update README/CHANGELOG, and generate this week's GitHub and Douyin release pack.
 ```
 
-更多说明见 [docs/usage.md](./docs/usage.md)、[examples/weekly-release-pack.example.md](./examples/weekly-release-pack.example.md) 和 [examples/github-release-draft.example.md](./examples/github-release-draft.example.md)。
+鏇村璇存槑瑙?[docs/usage.md](./docs/usage.md)銆乕examples/weekly-release-pack.example.md](./examples/weekly-release-pack.example.md) 鍜?[examples/github-release-draft.example.md](./examples/github-release-draft.example.md)銆?
 
-## 仓库结构
+## 浠撳簱缁撴瀯
 
 ```text
 skills/
@@ -170,11 +170,11 @@ tools/
   update-codex-desktop-automation.ps1
 
 docs/
-  全部技能索引.md
-  全部插件索引.md
+  鍏ㄩ儴鎶€鑳界储寮?md
+  鍏ㄩ儴鎻掍欢绱㈠紩.md
   usage.md
-  UI参考源规则.md
-  UI技能索引.md
+  UI鍙傝€冩簮瑙勫垯.md
+  UI鎶€鑳界储寮?md
 
 examples/
   weekly-release-pack.example.md
@@ -188,17 +188,17 @@ output/
   codex-skill-plugin-video/
 ```
 
-## 发布与安全边界
+## 鍙戝竷涓庡畨鍏ㄨ竟鐣?
 
-- 推送 GitHub 前检查 `git status`、remote 和凭据状态。
-- 不提交 Token、Cookie、API Key、账号密码或浏览器会话文件。
-- 抖音个人发布素材只保存到 `output/douyin-release/YYYY-MM-DD/`，该目录不进入 Git 仓库。
-- 自动化发布遇到登录、扫码、验证码、风控、授权或最终发布按钮时必须暂停。
-- 本项目提供工作流和素材生成，不绕过平台限制，也不替代人工确认外部发布动作。
+- 鎺ㄩ€?GitHub 鍓嶆鏌?`git status`銆乺emote 鍜屽嚟鎹姸鎬併€?
+- 涓嶆彁浜?Token銆丆ookie銆丄PI Key銆佽处鍙峰瘑鐮佹垨娴忚鍣ㄤ細璇濇枃浠躲€?
+- 鎶栭煶涓汉鍙戝竷绱犳潗鍙繚瀛樺埌 `output/douyin-release/YYYY-MM-DD/`锛岃鐩綍涓嶈繘鍏?Git 浠撳簱銆?
+- 鑷姩鍖栧彂甯冮亣鍒扮櫥褰曘€佹壂鐮併€侀獙璇佺爜銆侀鎺с€佹巿鏉冩垨鏈€缁堝彂甯冩寜閽椂蹇呴』鏆傚仠銆?
+- 鏈」鐩彁渚涘伐浣滄祦鍜岀礌鏉愮敓鎴愶紝涓嶇粫杩囧钩鍙伴檺鍒讹紝涔熶笉鏇夸唬浜哄伐纭澶栭儴鍙戝竷鍔ㄤ綔銆?
 
-## 本周更新
+## 鏈懆鏇存柊
 
-详见 [CHANGELOG.md](./CHANGELOG.md)。
+璇﹁ [CHANGELOG.md](./CHANGELOG.md)銆?
 
 ## License
 

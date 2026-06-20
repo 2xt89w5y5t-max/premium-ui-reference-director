@@ -201,7 +201,8 @@ if (!(Test-Path -LiteralPath $outputDir)) {
 $roots = @(
   @{ Label = "openai-bundled"; Path = "$env:USERPROFILE\.codex\plugins\cache\openai-bundled" },
   @{ Label = "openai-curated"; Path = "$env:USERPROFILE\.codex\plugins\cache\openai-curated" },
-  @{ Label = "openai-curated-remote"; Path = "$env:USERPROFILE\.codex\plugins\cache\openai-curated-remote" }
+  @{ Label = "openai-curated-remote"; Path = "$env:USERPROFILE\.codex\plugins\cache\openai-curated-remote" },
+  @{ Label = "personal"; Path = "$env:USERPROFILE\.codex\plugins\cache\personal" }
 )
 
 $plugins = New-Object System.Collections.Generic.List[object]
